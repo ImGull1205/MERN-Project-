@@ -7,7 +7,6 @@ import SignInPage from "./pages/SignInPage";
 import LocationDetail from "./pages/LocationDetail";
 import BookingHistory from "./pages/BookingHistory";
 import PlacesFormPage from "./pages/PlacesFormPage";
-import PlacesEditFormPage from "./pages/PlacesEditFormPage";
 import ResetPasswordPage from "./pages/ForgotPassword"
 import MyPlaces from "./pages/MyPlace";
 import axios from "axios";
@@ -35,7 +34,6 @@ function App() {
         <Route path="/forgotpassword" element={<ResetPasswordPage />} />
         <Route path="/login" element={<SignInPage />} />
         <Route path="/places" element={<PlacesFormPage />} />
-        <Route path="/account/places/:id" element={<PlacesEditFormPage />} />
       </Routes>
     </UserContextProvider>
   );

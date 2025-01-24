@@ -202,7 +202,7 @@ app.get('/api/places/:id', async (req, res) => {
 app.put('/api/places', async (req, res) => {
   const { token } = req.cookies;
   try {
-    console.log('Request body:', req.body); // Thêm log để debug
+    console.log('Request body:', req.body); 
     const {
       id, title, photos, description,
       features, tickets, province, district, street, houseNumber
@@ -233,12 +233,12 @@ app.put('/api/places', async (req, res) => {
           res.status(403).json({ message: 'Not authorized to update this place' });
         }
       } catch (error) {
-        console.error('Detailed error:', error); // Thêm log để debug
+        console.error('Detailed error:', error);
         res.status(500).json({ message: 'Error updating place', error: error.message });
       }
     });
   } catch (error) {
-    console.error('Request error:', error); // Thêm log để debug
+    console.error('Request error:', error); 
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
@@ -255,7 +255,6 @@ app.get('/api/places', async (req, res) => {
       priceMax
     } = req.query;
 
-    // Build query for Place model
     const query = {};
 
     if (province) query['location.province'] = { $regex: new RegExp(province, 'i') };
@@ -269,20 +268,15 @@ app.get('/api/places', async (req, res) => {
 
     // Fetch places that match the location and features criteria, or return all if no criteria provided
     const places = await Place.find(query);
-
-    // If no ticket or price filters, return places directly
     if (!priceMin && !priceMax && !tickets) {
       return res.json(places);
     }
-
-    // Filter tickets based on type and price
     const filteredPlaces = places.filter(place => {
       if (!place.tickets) return false;
 
       return place.tickets.some(ticket => {
-        // Normalize ticket type to lowercase for case-insensitive matching
         const ticketType = ticket.type.toLowerCase();
-        const targetType = tickets?.toLowerCase(); // Normalize search ticket type
+        const targetType = tickets?.toLowerCase(); 
         
         const price = ticket.price;
         const matchesType = !tickets || (ticketType === targetType);
@@ -430,6 +424,23 @@ app.delete('/api/bookings/:id', async (req, res) => {
     res.json({message: 'Booking deleted'});
   } catch(err) {
     res.status(500).json({error: err.message});
+  }
+});
+
+app.post('/api/reset-password', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const userDoc = await User.findOne({ email });
+    if (!userDoc) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
+    userDoc.password = password; 
+    await userDoc.save();
+
+    res.json({ message: 'Password reset successful' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error resetting password' }); 
   }
 });
 

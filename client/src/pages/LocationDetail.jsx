@@ -29,14 +29,12 @@ const LocationDetail = () => {
         
         const averageRating = reviews.reduce((sum, review) => sum + review.point, 0) / reviews.length;
         setAverageRating(averageRating);
-
-        // Check if the user already has a review for this place
         const existingReview = reviews.find((review) => review.user._id === user?._id);
         if (existingReview) {
           setUserReview(existingReview);
           setReviewPoint(existingReview.point);
           setReviewText(existingReview.comment);
-          setIsEditing(true); // Set editing mode if there's an existing review
+          setIsEditing(true); 
         }
       } catch (error) {
         console.error("Error fetching place data:", error);
@@ -69,7 +67,6 @@ const LocationDetail = () => {
           point: reviewPoint,
           comment: reviewText,
         });
-        // Update the review in the state
         setReviews((prevReviews) =>
           prevReviews.map((review) =>
             review._id === userReview._id ? data.data : review
