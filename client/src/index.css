@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text"],input[type="password"],input[type="email"]{
+    @apply w-full border my-1  py-2 px-3 rounded-2xl ;
+}
+
+.navbarMenu {
+  border-top: 2px solid gray;
+  padding: 10px;
+}
+
+.logMenu {
+  margin-top: 400px;
+  border-top: 2px solid gray;
+  padding: 10px;
+}
+
+.ant-menu-item {
+  margin-top: 10px !important;
+  border-radius: 20px !important;
+}

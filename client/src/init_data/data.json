@@ -1,0 +1,412 @@
+{
+    "parks": [
+        {
+            "id": 1,
+            "name": "Sunny Meadows Park",
+            "location": "California, USA",
+            "features": [
+                "Playground",
+                "Picnic Area",
+                "Hiking Trails"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 15
+                },
+                {
+                    "type": "Child",
+                    "price": 10
+                },
+                {
+                    "type": "Senior",
+                    "price": 12
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Green Valley Nature Reserve",
+            "location": "Ontario, Canada",
+            "features": [
+                "Bird Watching",
+                "Camping",
+                "Kayaking"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 20
+                },
+                {
+                    "type": "Child",
+                    "price": 12
+                },
+                {
+                    "type": "Family Pass",
+                    "price": 50
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Starry Nights Observatory Park",
+            "location": "Arizona, USA",
+            "features": [
+                "Stargazing",
+                "Astronomy Museum",
+                "Guided Night Tours"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 25
+                },
+                {
+                    "type": "Child",
+                    "price": 15
+                },
+                {
+                    "type": "Group",
+                    "price": 100
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Blue Lake Park",
+            "location": "Michigan, USA",
+            "features": [
+                "Fishing",
+                "Swimming",
+                "Boating"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 18
+                },
+                {
+                    "type": "Child",
+                    "price": 12
+                },
+                {
+                    "type": "Family Pass",
+                    "price": 40
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Cedar Hills Park",
+            "location": "Texas, USA",
+            "features": [
+                "Hiking Trails",
+                "Wildlife Viewing",
+                "Picnic Area"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 10
+                },
+                {
+                    "type": "Child",
+                    "price": 7
+                },
+                {
+                    "type": "Senior",
+                    "price": 8
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Golden Sands Beach Park",
+            "location": "Florida, USA",
+            "features": [
+                "Beach Access",
+                "Surfing",
+                "Sand Volleyball"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 20
+                },
+                {
+                    "type": "Child",
+                    "price": 10
+                },
+                {
+                    "type": "Group",
+                    "price": 70
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Mountain Peaks Adventure Park",
+            "location": "Colorado, USA",
+            "features": [
+                "Rock Climbing",
+                "Zip Lining",
+                "Hiking Trails"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 30
+                },
+                {
+                    "type": "Child",
+                    "price": 20
+                },
+                {
+                    "type": "Group",
+                    "price": 120
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Cherry Blossom Park",
+            "location": "Tokyo, Japan",
+            "features": [
+                "Sakura Viewing",
+                "Walking Trails",
+                "Cultural Exhibits"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 12
+                },
+                {
+                    "type": "Child",
+                    "price": 8
+                },
+                {
+                    "type": "Senior",
+                    "price": 10
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Ocean Breeze Water Park",
+            "location": "Sydney, Australia",
+            "features": [
+                "Water Slides",
+                "Wave Pool",
+                "Lazy River"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 25
+                },
+                {
+                    "type": "Child",
+                    "price": 15
+                },
+                {
+                    "type": "Family Pass",
+                    "price": 70
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Desert Oasis Park",
+            "location": "Nevada, USA",
+            "features": [
+                "Desert Tours",
+                "Camel Rides",
+                "Camping"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 22
+                },
+                {
+                    "type": "Child",
+                    "price": 14
+                },
+                {
+                    "type": "Group",
+                    "price": 90
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Rainforest Adventure Park",
+            "location": "Amazon, Brazil",
+            "features": [
+                "Canopy Walks",
+                "Wildlife Viewing",
+                "River Rafting"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 35
+                },
+                {
+                    "type": "Child",
+                    "price": 20
+                },
+                {
+                    "type": "Group",
+                    "price": 130
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Northern Lights Reserve",
+            "location": "Alaska, USA",
+            "features": [
+                "Aurora Viewing",
+                "Sledding",
+                "Winter Hiking"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 40
+                },
+                {
+                    "type": "Child",
+                    "price": 25
+                },
+                {
+                    "type": "Group",
+                    "price": 150
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Coral Reef Marine Park",
+            "location": "Hawaii, USA",
+            "features": [
+                "Snorkeling",
+                "Scuba Diving",
+                "Boat Tours"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 45
+                },
+                {
+                    "type": "Child",
+                    "price": 30
+                },
+                {
+                    "type": "Group",
+                    "price": 180
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Evergreen Forest Park",
+            "location": "Washington, USA",
+            "features": [
+                "Hiking",
+                "Nature Trails",
+                "Photography Spots"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 15
+                },
+                {
+                    "type": "Child",
+                    "price": 8
+                },
+                {
+                    "type": "Senior",
+                    "price": 10
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Crimson Canyon Park",
+            "location": "Utah, USA",
+            "features": [
+                "Canyon Tours",
+                "Photography",
+                "Hiking"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 20
+                },
+                {
+                    "type": "Child",
+                    "price": 12
+                },
+                {
+                    "type": "Group",
+                    "price": 75
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Lavender Fields Park",
+            "location": "Provence, France",
+            "features": [
+                "Flower Viewing",
+                "Photography",
+                "Picnic Area"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 15
+                },
+                {
+                    "type": "Child",
+                    "price": 10
+                },
+                {
+                    "type": "Family Pass",
+                    "price": 40
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Rocky River Park",
+            "location": "Alberta, Canada",
+            "features": [
+                "Fishing",
+                "Camping",
+                "Canoeing"
+            ],
+            "tickets": [
+                {
+                    "type": "Adult",
+                    "price": 18
+                },
+                {
+                    "type": "Child",
+                    "price": 12
+                },
+                {
+                    "type": "Senior",
+                    "price": 15
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "terminal.integrated.profiles.windows": {
+
+        "Command Prompt": { 
+            "path": ["${env:windir}\\System32\\cmd.exe"] 
+        }, 
+        "PowerShell": { 
+            "path": ["${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"] 
+        }, 
+        "Git Bash": { 
+            "path": ["C:\\Program Files\\Git\\bin\\bash.exe"] 
+        } 
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt"
+}
