@@ -6,7 +6,7 @@ import BookingWidget from "../components/BookingWidget";
 import { UserContext } from "../components/UserContext";
 import 'flowbite';
 
-const LocationDetail = () => {
+export default function LocationDetail() {
   const { id } = useParams();
   const [place, setPlace] = useState(null);
   const [reviews, setReviews] = useState(null);
@@ -17,32 +17,33 @@ const LocationDetail = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [averageRating, setAverageRating] = useState(false);
   const { user } = useContext(UserContext);
-  const [userReview, setUserReview] = useState(null); // Track user's review for this place
+  const [userReview, setUserReview] = useState(null);
 
-  useEffect(() => {
-    const fetchPlace = async () => {
-      try {
-        const response = await axios.get(`/api/places/${id}`);
-        const { place, reviews } = response.data;
-        setPlace(place);
-        setReviews(reviews);
-        
-        const averageRating = reviews.reduce((sum, review) => sum + review.point, 0) / reviews.length;
-        setAverageRating(averageRating);
-        const existingReview = reviews.find((review) => review.user._id === user?._id);
-        if (existingReview) {
-          setUserReview(existingReview);
-          setReviewPoint(existingReview.point);
-          setReviewText(existingReview.comment);
-          setIsEditing(true); 
-        }
-      } catch (error) {
-        console.error("Error fetching place data:", error);
-      } finally {
-        setLoading(false);
+  const fetchPlace = async () => {
+    try {
+      const response = await axios.get(`/api/places/${id}`);
+      const { place, reviews } = response.data;
+      setPlace(place);
+      setReviews(reviews);
+      
+      const averageRating = reviews.reduce((sum, review) => sum + review.point, 0) / reviews.length;
+      setAverageRating(averageRating);
+ 
+      const existingReview = reviews.find((review) => review.user._id === user?._id);
+      if (existingReview) {
+        setUserReview(existingReview);
+        setReviewPoint(existingReview.point);
+        setReviewText(existingReview.comment);
+        setIsEditing(true);
       }
-    };
-
+    } catch (error) {
+      console.error("Error fetching place data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+ 
+  useEffect(() => {
     fetchPlace();
   }, [id, user]);
 
@@ -51,41 +52,38 @@ const LocationDetail = () => {
       alert("You need to be logged in to submit a review.");
       return;
     }
-
+ 
     if (!reviewText || reviewPoint === 0) {
       setError("Please provide a rating and a comment.");
       return;
     }
-
+ 
     try {
-      let data;
       if (isEditing && userReview) {
-        // If editing an existing review
-        data = await axios.put("/api/reviews", {
+        await axios.put("/api/reviews", {
           placeId: id,
           reviewId: userReview._id,
           point: reviewPoint,
           comment: reviewText,
         });
-        setReviews((prevReviews) =>
-          prevReviews.map((review) =>
-            review._id === userReview._id ? data.data : review
-          )
-        );
+        window.location.reload();
       } else {
-        // If submitting a new review
-        data = await axios.post("/api/reviews", {
+        await axios.post("/api/reviews", {
           placeId: id,
           point: reviewPoint,
           comment: reviewText,
         });
-        setReviews((prevReviews) => [...prevReviews, data.data]);
       }
-
+      
+      // Refresh data 
+      await fetchPlace();
+ 
+      // Reset form
       setReviewPoint(0);
       setReviewText("");
       setError(null);
-      setIsEditing(false); // Reset editing mode after submission
+      setIsEditing(false);
+      
     } catch (error) {
       console.error("Error submitting review:", error);
       setError("Error submitting review.");
@@ -99,6 +97,8 @@ const LocationDetail = () => {
   if (!place) {
     return <p>Place not found.</p>;
   }
+
+  
 
   const { title, description, location,features,extraInfo } = place;
   const { province, district, street, houseNumber } = location || {};
@@ -254,4 +254,3 @@ const LocationDetail = () => {
   );
 };
 
-export default LocationDetail;

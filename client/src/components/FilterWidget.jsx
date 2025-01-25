@@ -9,7 +9,6 @@ export default function FilterWidget({ onFilter }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleApplyFilters = () => {
-    // Collect filter values (e.g., Province, District, etc.)
     const province = document.getElementById("province").value;
     const district = document.getElementById("district").value;
     const street = document.getElementById("street").value;
@@ -17,10 +16,7 @@ export default function FilterWidget({ onFilter }) {
     const featureCheckboxes = document.querySelectorAll("input[name='feature']:checked");
     featureCheckboxes.forEach((checkbox) => features.push(checkbox.value));
 
-    // Collect ticket types
     const selectedTicketTypes = ticketTypes;
-
-    // Price validation
     let min = minPrice ? parseFloat(minPrice) : null;
     let max = maxPrice ? parseFloat(maxPrice) : null;
 
@@ -29,21 +25,18 @@ export default function FilterWidget({ onFilter }) {
       setErrorMessage("Please ensure that prices are positive numbers and Max Price is greater than Min Price.");
       return;
     } else {
-      setErrorMessage(""); // Clear error message if valid
+      setErrorMessage(""); 
     }
 
-    // Create the query string with the filter parameters
     const queryParams = new URLSearchParams({
       province,
       district,
       street,
       features: features.join(","),
       ticketTypes: selectedTicketTypes.join(","),
-      minPrice: minPrice || "", // Send empty string if minPrice is null
-      maxPrice: maxPrice || "", // Send empty string if maxPrice is null
+      minPrice: minPrice || "", 
+      maxPrice: maxPrice || "", 
     }).toString();
-
-    // Navigate to the homepage with the search query string
     navigate(`?${queryParams}`);
   };
 
@@ -122,31 +115,6 @@ export default function FilterWidget({ onFilter }) {
             <label className="flex items-center space-x-2">
               <input type="checkbox" name="feature" value="Private entrance" className="h-4 w-4" />
               <span>Private entrance</span>
-            </label>
-          </div>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Ticket Types:</label>
-          <div className="space-y-2">
-            <label className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                value="Child"
-                checked={ticketTypes.includes('Child')}
-                onChange={handleTicketChange}
-                className="h-4 w-4"
-              />
-              <span>Child</span>
-            </label>
-            <label className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                value="Special"
-                checked={ticketTypes.includes('Special')}
-                onChange={handleTicketChange}
-                className="h-4 w-4"
-              />
-              <span>Special</span>
             </label>
           </div>
         </div>

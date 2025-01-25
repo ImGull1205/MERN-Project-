@@ -127,9 +127,9 @@ export default function PlacesFormPage() {
     }
   }
 
-  if (redirect) {
-    return <Navigate to={"/myplaces"} />;
-  }
+    if (redirect) {
+      return <Navigate to={"/myplaces"} />;
+    }
 
   const inputClass =
     "w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-app_blue focus:outline-none";
